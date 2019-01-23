@@ -1,8 +1,8 @@
-package com.ssafy.algo;
+package com.ssafy.swe;
 
 import java.util.Scanner;
 
-public class Solution1204 {
+public class Solution1204_D2_최빈수 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -25,5 +25,4 @@ public class Solution1204 {
 			System.out.println("#" + tt + " " + Ans);
 		}
 	}
-
 }
