@@ -1,4 +1,4 @@
-package com.ssafy.swe;
+package com.ssafy.git.Java_SWEA;
 
 import java.util.ArrayList;
 import java.util.Arrays;

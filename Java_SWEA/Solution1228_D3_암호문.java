@@ -1,4 +1,4 @@
-package com.ssafy.swe;
+package com.ssafy.git.Java_SWEA;
 
 public class Solution1228_D3_암호문 {
 

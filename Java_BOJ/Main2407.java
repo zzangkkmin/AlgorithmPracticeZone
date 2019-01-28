@@ -1,4 +1,4 @@
-package com.ssafy.swe;
+package com.ssafy.git.Java_BOJ;
 
 import java.math.BigInteger;
 import java.util.Scanner;

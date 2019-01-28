@@ -1,4 +1,4 @@
-package com.ssafy.algo;
+package com.ssafy.git.Java_SWEA;
 
 import java.math.BigInteger;
 import java.util.Scanner;

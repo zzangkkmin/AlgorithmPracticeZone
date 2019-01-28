@@ -1,4 +1,4 @@
-package com.ssafy.algo;
+package com.ssafy.git.Java_SWEA;
 
 import java.util.Arrays;
 import java.util.Scanner;

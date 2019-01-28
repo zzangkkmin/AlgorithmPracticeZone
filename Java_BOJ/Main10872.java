@@ -1,4 +1,4 @@
-package com.ssafy.algo;
+package com.ssafy.git.Java_BOJ;
 
 public class Main10872 {
 

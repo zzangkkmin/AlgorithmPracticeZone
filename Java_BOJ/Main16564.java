@@ -1,4 +1,4 @@
-package com.ssafy.swe;
+package com.ssafy.git.Java_BOJ;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
