@@ -26,11 +26,11 @@ public class Solution6855_D4_신도시전기연결 {
 				System.out.println("#"+t+" "+0);
 			}
 			else {
-				for(int i=0;i<k-1;i++) {
+				for(int i=0;i<n-k;i++) {
 					sum += diff[i];
 				}
+				System.out.println("#"+t+" "+sum);
 			}
-			System.out.println("#"+t+" "+sum);
 		}
 	}
 
