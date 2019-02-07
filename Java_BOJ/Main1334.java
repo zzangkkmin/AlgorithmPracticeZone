@@ -16,9 +16,9 @@ public class Main1334 {
 		String post = number.substring(0, number.length()/2);
 		String rev = new StringBuilder(post).reverse().toString();
 		String output = pre + rev;
-		System.out.println("C_pre: "+pre);
-		System.out.println("C_post: "+post);
-		System.out.println("C_rev: "+rev);
+//		System.out.println("C_pre: "+pre);
+//		System.out.println("C_post: "+post);
+//		System.out.println("C_rev: "+rev);
 		if(number.compareTo(output) < 0) {
 			//output이 더 클때
 			System.out.println(pre + rev);
@@ -28,20 +28,21 @@ public class Main1334 {
 			BigInteger bigPre = new BigInteger(pre);
 			bigPre = bigPre.add(new BigInteger("1"));
 			String nextpre = bigPre.toString();
-			System.out.println("N_pre: "+ nextpre);
+//			System.out.println("N_pre: "+ nextpre);
 			String nextpost = "";
 			if(number.length()%2==1) {
 				nextpost = bigPre.toString().substring(0,bigPre.toString().length()-1);
-				System.out.println("N_post: "+nextpost);
+//				System.out.println("N_post: "+nextpost);
 			}else {
 				nextpost = bigPre.toString();
-				System.out.println("N_post: "+nextpost);
+//				System.out.println("N_post: "+nextpost);
 			}
 			if(nextpost.length()!=post.length()) {
-				
+				nextpost = nextpost.substring(0, nextpost.length() - 1);
+//				System.out.println("substring_N_post: "+nextpost);
 			}
 			String nextrev = new StringBuilder(nextpost).reverse().toString();
-			System.out.println("N_rev: "+nextrev);
+//			System.out.println("N_rev: "+nextrev);
 			System.out.println(nextpre + nextrev);
 		}
 	}
