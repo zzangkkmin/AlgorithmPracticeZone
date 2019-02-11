@@ -23,6 +23,7 @@ public class Solution5607_D3_조합 {
 				System.out.println("#"+t+" "+1);
 			}
 			else{
+				/** ans = n!/(r!*(n-r)!) = n!*(r!)^-1*((n-r)!)^-1  */
 				long ans = fact[(int) n] % p;
 				ans = (ans * inv[(int) (n - r)]) % p;
 				ans = (ans * inv[(int) r]) % p;
@@ -54,7 +55,7 @@ public class Solution5607_D3_조합 {
 			fact[i] = (fact[i-1] * i) % p;
 		}
 		inv[1000000] = power(fact[1000000], p-2);
-		for(int i = 999999; i>0;i--){
+		for(int i = 999999; i>=0;i--){
 			inv[i] = (inv[i+1] * (i+1)) % p;
 		}
 	}
