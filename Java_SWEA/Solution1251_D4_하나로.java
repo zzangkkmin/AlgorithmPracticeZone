@@ -81,7 +81,7 @@ public class Solution1251_D4_하나로 {
 						long dist = (posX[i] - posX[j]) * (posX[i] - posX[j]) +
 								(posY[i] - posY[j]) * (posY[i] - posY[j]);
 						ts.add(new Node(i,j,dist));
-						ts.add(new Node(j,i,dist));
+						//ts.add(new Node(j,i,dist));
 					}
 				}
 			}
