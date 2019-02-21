@@ -14,16 +14,15 @@ public class Main6236 {
 		n = Integer.parseInt(Line[0]);
 		m = Integer.parseInt(Line[1]);
 		spend = new int[n];
-		int left = 0;
-		int right = Integer.MAX_VALUE - 1;
+		long left = 0;
+		long right = Integer.MAX_VALUE;
 		for(int i=0;i<n;i++){
 			spend[i] = Integer.parseInt(br.readLine().trim());
 			left = left < spend[i] ? spend[i] : left;
 		}
-		right -= left;
 		
 		while(left<=right){
-			int mid = (left + right) / 2;
+			long mid = (long) (left + right) / 2;
 			if(!injection(mid)){
 				left = mid + 1;
 			}
@@ -33,13 +32,12 @@ public class Main6236 {
 		}
 		System.out.println(left);
 	}
-	public static boolean injection(int kk){
-		int cnt = 0; int money = 0;
+	public static boolean injection(long kk){
+		int cnt = 1; long money = kk;
 		for(int i=0;i<n;i++){
 			if(money - spend[i] < 0){
 				cnt++;
-				money += kk;
-				money -= spend[i];
+				money = kk - spend[i];
 			}
 			else{
 				money -= spend[i];
