@@ -39,9 +39,9 @@ public class Solution5986_D3_세셈이세소수 {
 		}
 	}
 	public static void find() {
-		for(int i=0;i<primeList.size()-2;i++) {
+		for(int i=0;i<primeList.size();i++) {
 			int x = primeList.get(i);
-			for(int j=i;j<primeList.size()-1;j++) {
+			for(int j=i;j<primeList.size();j++) {
 				int y = primeList.get(j);
 				for(int k=j;k<primeList.size();k++) {
 					int z = primeList.get(k);
