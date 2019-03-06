@@ -34,9 +34,22 @@ public class Solution7206_D5_숫자게임 {
 		String CDE = CD + E; int cde = Integer.parseInt(CDE);
 		String ABCD = ABC + D; int abcd = Integer.parseInt(ABCD);
 		String BCDE = BCD + E; int bcde = Integer.parseInt(BCDE);
-		dist[origin] = dist[a*b*c*d*e] + dist[ab*c*d*e] + dist[a*bc*d*e] + dist[a*b*cd*e] + dist[a*b*c*de] +
-				dist[ab*c*de] +	dist[ab*cd*e] + dist[abc*d*e] + dist[a*b*cde] + dist[a*bc*de] + dist[a*bcd*e] +
-				dist[a*bcde] + dist[ab*cde] + dist[abc*de] + dist[abcd*e] + 1;
+		int max = Math.max(dist[a*b*c*d*e], dist[ab*c*d*e] );
+		max = Math.max(max, dist[a*bc*d*e]);
+		max = Math.max(max, dist[a*b*cd*e]);
+		max = Math.max(max, dist[a*b*c*de]);
+		max = Math.max(max, dist[ab*c*de]);
+		max = Math.max(max, dist[ab*cd*e]);
+		max = Math.max(max, dist[abc*d*e]);
+		max = Math.max(max, dist[a*b*cde]);
+		max = Math.max(max, dist[a*bc*de]);
+		max = Math.max(max, dist[a*bcd*e]);
+		max = Math.max(max, dist[a*bcde]);
+		max = Math.max(max, dist[ab*cde]);
+		max = Math.max(max, dist[abc*de]);
+		max = Math.max(max, dist[abcd*e]);
+		
+		dist[origin] = max + 1;
 	}
 	public static void find4(String number) {
 		int origin = Integer.parseInt(number);
@@ -55,6 +68,7 @@ public class Solution7206_D5_숫자게임 {
 		max = Math.max(max, dist[a*bcd]);
 		max = Math.max(max, dist[ab*cd]);
 		max = Math.max(max, dist[abc*d]);
+		
 		dist[origin] = max + 1;
 	}
 	public static void find3(String number) {
@@ -66,6 +80,7 @@ public class Solution7206_D5_숫자게임 {
 		String BC = B + C; int bc = Integer.parseInt(BC);
 		int max = Math.max(dist[a*b*c], dist[a*bc]);
 		max = Math.max(max, dist[ab*c]);
+		
 		dist[origin] = max + 1;
 	}
 	public static void find2(String number) {
