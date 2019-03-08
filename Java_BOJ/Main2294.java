@@ -21,18 +21,22 @@ public class Main2294 {
 		}
 		Arrays.sort(coins);
 		d = new int[k+1];
-		int min; int size = coins.length;
-		for(int change=1;change<=k;change++) {
-			min = Integer.MAX_VALUE;
-			for(int i=0;i<size;i++) {
-				if(change >= coins[i]) {
-					if(d[change-coins[i]]<min) {
-						min = (int) d[change-coins[i]];
-					}
+		Arrays.fill(d, -1);
+		d[0] = 0;
+		for(int i = 0; i<=k; i++) {
+			if(d[i] < 0) {
+				continue;
+			}
+			for(int j=0;j<n;j++) {
+				if(i + coins[j] > k) {
+					continue;
+				}
+				if(d[i+coins[j]] < 0 || d[i+coins[j]] > d[i] + 1) {
+					d[i+coins[j]] = d[i] + 1;
 				}
 			}
-			d[change] = min + 1;
 		}
+		
 		System.out.println(d[k]);
 	}
 }
