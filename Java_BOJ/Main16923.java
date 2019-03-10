@@ -35,8 +35,8 @@ public class Main16923 {
 			System.out.println(-1);
 			return;
 		}
-		S = S.substring(0, start - 1);
-		find(start);
+		S = S.substring(0, S.length() - 1);
+		find(start + 1);
 		
 	}
 }
