@@ -1,73 +1,49 @@
 package com.ssafy.git.Java_BOJ;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main17069 {
-	public static int n, ans;
+	public static int n;
+	public static long ans;
 	public static int[][] map;
+	public static long[][][] d;
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner sc = new Scanner(System.in);
 		n = sc.nextInt();
-		map = new int[n][n];
-		for(int i=0;i<n;i++) {
-			for(int j=0;j<n;j++) {
+		map = new int[n+1][n+1];
+		d = new long[3][n+1][n+1];
+		Arrays.fill(map[0], 1);
+		for(int i=1;i<=n;i++) {
+			Arrays.fill(map[i], 1);	
+			for(int j=1;j<=n;j++) {
 				map[i][j] = sc.nextInt();
 			}
 		}
-		solve(0,1,3);
+		d[0][1][2] = 1;
+		for(int i=1;i<=n;i++) {
+			for(int j=2;j<=n;j++) {
+				if(i==1&&j==2) continue;
+				if(map[i][j]==0){
+					//case 0: 가로
+					if(map[i][j-1] == 0){
+						d[0][i][j] = d[0][i][j-1] + d[1][i][j-1];
+					}
+					//case 1: 대각선
+					if(map[i][j-1] == 0 && map[i-1][j-1] == 0 && map[i-1][j] == 0){
+						d[1][i][j] = d[0][i-1][j-1] + d[1][i-1][j-1] + d[2][i-1][j-1];
+					}
+					//case 2: 세로
+					if(map[i-1][j] == 0){
+						d[2][i][j] = d[1][i-1][j] + d[2][i-1][j];
+					}
+				}
+			}
+		}
+		
+		ans = d[0][n][n] + d[1][n][n] + d[2][n][n];
 		System.out.println(ans);
 	}
-	public static boolean inrange(int x, int y) {
-		if(x>=0&&x<n&&y>=0&&y<n) {
-			return true;
-		}
-		else {
-			return false;
-		}
-	}
-	public static void solve(int px, int py, int mode) {
-		if(mode == 1) {
-			if(px==n-1&&py==n-1) {
-				ans++;
-				return;
-			}
-			if(inrange(px+1, py) && map[px+1][py] == 0) {
-				solve(px+1,py,1);
-			}
-			if(inrange(px+1,py) && inrange(px+1,py+1) && inrange(px,py+1) && 
-				map[px+1][py] == 0 && map[px+1][py+1] == 0 && map[px][py+1] == 0) {
-				solve(px+1,py+1,2);
-			}
-		}
-		else if(mode == 2) {
-			if(px==n-1&&py==n-1) {
-				ans++;
-				return;
-			}
-			if(inrange(px+1, py) && map[px+1][py] == 0) {
-				solve(px+1,py,1);
-			}
-			if(inrange(px+1,py) && inrange(px+1,py+1) && inrange(px,py+1) && 
-				map[px+1][py] == 0 && map[px+1][py+1] == 0 && map[px][py+1] == 0) {
-				solve(px+1,py+1,2);
-			}
-			if(inrange(px, py+1) && map[px][py+1] == 0) {
-				solve(px,py+1,3);
-			}
-		}
-		else {
-			if(px==n-1&&py==n-1) {
-				ans++;
-				return;
-			}
-			if(inrange(px, py+1) && map[px][py+1] == 0) {
-				solve(px,py+1,3);
-			}
-			if(inrange(px+1,py) && inrange(px+1,py+1) && inrange(px,py+1) && 
-				map[px+1][py] == 0 && map[px+1][py+1] == 0 && map[px][py+1] == 0) {
-				solve(px+1,py+1,2);
-			}
-		}
-	}
+	
 }
