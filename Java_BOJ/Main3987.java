@@ -12,7 +12,7 @@ public class Main3987 {
 	public static int[] dy = {0,0,1,0,-1};
 	public static int[] c1 = {0,4,3,2,1};// '\'
 	public static int[] c2 = {0,2,1,4,3};// '/'
-	public static char[] urdr = {0,'U','R','D','R'};
+	public static char[] urdr = {0,'U','R','D','L'};
 	public static String[] linez;
 	public static String line;
 	
@@ -91,8 +91,8 @@ public class Main3987 {
 		int visited;
 		int dir;
 		public visit(){
-			visited = 0;
-			dir = 0;
+			this.visited = 0;
+			this.dir = 0;
 		}
 		public visit(int visited, int dir) {
 			super();

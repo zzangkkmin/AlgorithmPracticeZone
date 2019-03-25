@@ -4,14 +4,15 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.PriorityQueue;
 
 public class Main16957 {
 	public static String[] line;
 	public static int[][] map, parent, ans;
 	public static int[] dx = {0,1,1,1,0,-1,-1,-1};
 	public static int[] dy = {1,1,0,-1,-1,-1,0,1};
-	public static ArrayList<Integer> root = new ArrayList<>();
 	public static int r,c;
+	public static PriorityQueue<ball> pq = new PriorityQueue<>();
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -27,11 +28,21 @@ public class Main16957 {
 			line = br.readLine().trim().split(" ");
 			for(int j=0;j<c;j++) {
 				map[i][j] = Integer.parseInt(line[j]);
-				parent[i][j] = i*c+j;
+				pq.add(new ball(map[i][j], i*c+j));
+				ans[i][j] = 1;
 			}
 		}
-		setting();
-		positioning();
+//		System.out.println("pause");
+//		while(!pq.isEmpty()){
+//			System.out.println(pq.poll().mapValue);
+//		}
+		move();
+		for(int i=0;i<r;i++) {
+			for(int j=0;j<c;j++) {
+				System.out.print(ans[i][j]+" ");
+			}
+			System.out.println();
+		}
 	}
 	public static boolean inrange(int x, int y) {
 		if(x>=0&&x<r&&y>=0&&y<c) {
@@ -40,43 +51,41 @@ public class Main16957 {
 		else
 			return false;
 	}
-	public static void setting() {
-		for(int i=0;i<r;i++) {
-			for(int j=0;j<c;j++) {
-				boolean find = false;
-				int mini = map[i][j];
-				int mx = -1; int my = -1;
-				for(int d=0;d<8;d++) {
-					int nx = i + dx[d];
-					int ny = j + dy[d];
-					if(inrange(nx,ny) && mini > map[nx][ny]) {
-						find = true;
-						mini = map[nx][ny];
-						mx = nx; my = ny;
-					}
-				}
-				if(find==false) {
-					root.add(i*c+j);
-				}
-				else {
-					parent[i][j] = parent[mx][my];
-				}
-			}
+	public static class ball implements Comparable<ball>{
+		int mapValue;
+		int pos;
+		public ball(int mapValue, int pos) {
+			super();
+			this.mapValue = mapValue;
+			this.pos = pos;
+		}
+
+		@Override
+		public int compareTo(ball o) {
+			// TODO Auto-generated method stub
+			return o.mapValue - this.mapValue;
 		}
 	}
-	public static void positioning() {
-		for(int i=0;i<r;i++) {
-			for(int j=0;j<c;j++) {
-				int ax = parent[i][j] / c;
-				int ay = parent[i][j] % c;
-				ans[ax][ay]++;
+	public static void move(){
+		while(!pq.isEmpty()){
+			ball cur = pq.poll();
+			int mini = cur.mapValue;
+			int cx = cur.pos / c; int mx = -1;
+			int cy = cur.pos % c; int my = -1;
+			boolean find = false;
+			for(int d = 0; d < 8;d++){
+				int nx = cx + dx[d];
+				int ny = cy + dy[d];
+				if(inrange(nx,ny) && mini > map[nx][ny]){
+					find = true;
+					mini = map[nx][ny];
+					mx = nx; my = ny;
+				}
 			}
-		}
-		for(int i=0;i<r;i++) {
-			for(int j=0;j<c;j++) {
-				System.out.print(ans[i][j]+" ");
+			if(find){
+				ans[mx][my] += ans[cx][cy];
+				ans[cx][cy] = 0;
 			}
-			System.out.println();
 		}
 	}
 }
