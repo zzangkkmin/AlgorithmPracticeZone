@@ -6,7 +6,6 @@ public class Solution1949_D4_등산로2 {
 	public static int n,k, maxx, spIdx, ans;
 	public static int[][] map;
 	public static int[][] visit;
-	public static int[] startPoint;
 	public static int[] dx = {0,1,0,-1};
 	public static int[] dy = {1,0,-1,0};
 	public static void main(String[] args) {
@@ -19,21 +18,13 @@ public class Solution1949_D4_등산로2 {
 			map = new int[n][n];
 			visit = new int[n][n];
 			spIdx = 0; maxx = 0; ans = 0;
-			startPoint = new int[5];
 			for(int i=0;i<n;i++) {
 				for(int j=0;j<n;j++) {
 					map[i][j] = sc.nextInt();
 					maxx = maxx < map[i][j] ? map[i][j] : maxx;
 				}
 			}
-//			for(int i=0;i<n;i++) {
-//				for(int j=0;j<n;j++) {
-//					if(map[i][j] == maxx) {
-//						startPoint[spIdx++] = i*n+j;
-//					}
-//				}
-//			}
-			//
+
 			for(int i=0;i<n;i++) {
 				for(int j=0;j<n;j++) {
 					if(map[i][j]==maxx) {
