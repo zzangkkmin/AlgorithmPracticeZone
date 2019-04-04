@@ -19,8 +19,9 @@ public class JungOl1082_화염탈출 {
 		map = new char[r][c];
 		visit = new int[r][c];
 		for(int i=0;i<r;i++) {
+			String line = sc.next();
 			for(int j=0;j<c;j++) {
-				map[i][j] = sc.next().charAt(0);
+				map[i][j] = line.charAt(j);
 				if(map[i][j] == '*') {
 					q.add(new node(i, j, -1));
 				}
