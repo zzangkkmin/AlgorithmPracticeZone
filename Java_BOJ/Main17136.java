@@ -42,7 +42,7 @@ public class Main17136 {
 		return cnt;
 	}
 	public static void findPaper(int nth, int[] p){
-		if(validPaper(p)){
+		if(!validPaper(p)){
 			return;
 		}
 		if(cntPaper(p) > ans){
