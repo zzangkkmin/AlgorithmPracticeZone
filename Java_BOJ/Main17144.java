@@ -25,7 +25,6 @@ public class Main17144 {
 		C = sc.nextInt();
 		T = sc.nextInt();
 		map  = new int[2][R][C];
-		windmap = new int[R][C];
 		for(int i=0;i<R;i++) {
 			for(int j=0;j<C;j++) {
 				map[0][i][j] = sc.nextInt();
