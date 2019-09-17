@@ -3,8 +3,6 @@ package com.ssafy.git.TestB;
 import java.util.Arrays;
 import java.util.Scanner;
 
-import com.ssafy.git.Java_BOJ.Main14395.qCont;
-
 public class SolutionB01 {
 	static final int div = 1000000007;
 	static int n;
