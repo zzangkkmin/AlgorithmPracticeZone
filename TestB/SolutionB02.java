@@ -2,6 +2,7 @@ package com.ssafy.git.TestB;
 
 import java.util.Scanner;
 
+//SWEA 3814. [Professional] 평등주의
 public class SolutionB02 {
 	static int n,k,ans;
 	static int[] arr;

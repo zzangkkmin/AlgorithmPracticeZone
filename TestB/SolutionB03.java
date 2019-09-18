@@ -2,6 +2,7 @@ package com.ssafy.git.TestB;
 
 import java.util.Scanner;
 
+//SWEA 3813. [Professional] 그래도 수명이 절반이 되어서는...
 public class SolutionB03 {
 	static int n, k, kSum;
 	static int[] arr, kArr;

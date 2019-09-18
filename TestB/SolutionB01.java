@@ -3,6 +3,7 @@ package com.ssafy.git.TestB;
 import java.util.Arrays;
 import java.util.Scanner;
 
+//SWEA 3820. [Professional] 롤러코스터
 public class SolutionB01 {
 	static final int div = 1000000007;
 	static int n;
