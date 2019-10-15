@@ -87,7 +87,6 @@ public class SolutionB05 {
 		}
 	}
 	
-	//링크드리스트 구현
 	public static class myLinkedList {
 	    // 첫번째 노드를 가리키는 필드
 	    private Node head;
