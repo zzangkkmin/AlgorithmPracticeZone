@@ -43,7 +43,7 @@ public class Solution7812 {
 					}
 				}
 			}
-			System.out.println(ans);
+			System.out.println("#"+test_case+" "+ans);
 		}
 	}
 
