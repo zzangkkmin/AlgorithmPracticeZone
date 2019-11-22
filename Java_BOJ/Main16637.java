@@ -1,5 +1,6 @@
 package com.ssafy.git.Java_BOJ;
 
+import java.util.HashSet;
 import java.util.Scanner;
 
 public class Main16637 {
@@ -10,6 +11,9 @@ public class Main16637 {
 	static int[] numbers;
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		HashSet<Integer> m = new HashSet<Integer>();
+		for()
+		
 		Scanner sc = new Scanner(System.in);
 		n = sc.nextInt();
 		arithmetic = new char[n/2 + 1];
