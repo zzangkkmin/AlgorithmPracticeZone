@@ -12,7 +12,6 @@ public class Main16637 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		HashSet<Integer> m = new HashSet<Integer>();
-		for()
 		
 		Scanner sc = new Scanner(System.in);
 		n = sc.nextInt();
